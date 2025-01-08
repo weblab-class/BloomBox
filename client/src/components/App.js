@@ -1,62 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import jwt_decode from "jwt-decode";
-
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
+import Landing from "./pages/Landing.js";
+
 
 import "../utilities.css";
-
-import { socket } from "../client-socket.js";
-
-import { get, post } from "../utilities";
+import "./App.css";
 
 /**
  * Define the "App" component
  */
 const App = () => {
-  const [userId, setUserId] = useState(undefined);
-
-  useEffect(() => {
-    get("/api/whoami").then((user) => {
-      if (user._id) {
-        // they are registed in the database, and currently logged in.
-        setUserId(user._id);
-      }
-    });
-  }, []);
-
-  const handleLogin = (credentialResponse) => {
-    const userToken = credentialResponse.credential;
-    const decodedCredential = jwt_decode(userToken);
-    console.log(`Logged in as ${decodedCredential.name}`);
-    post("/api/login", { token: userToken }).then((user) => {
-      setUserId(user._id);
-      post("/api/initsocket", { socketid: socket.id });
-    });
-  };
-
-  const handleLogout = () => {
-    setUserId(undefined);
-    post("/api/logout");
-  };
-
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Skeleton
-            path="/"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div className="gradient-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div className="gradients-container">
+        <div className="gradient-1"></div>
+        <div className="gradient-2"></div>
+        <div className="gradient-3"></div>
+        <div className="gradient-4"></div>
+        <div className="gradient-5"></div>
+        <div className="interactive"></div>
+      </div>
+      <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+
   );
 };
 
