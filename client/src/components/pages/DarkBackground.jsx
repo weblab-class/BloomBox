@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./DarkBackground.css";
-import { Outlet } from "react-router-dom";
+
+
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     const interBubble = document.querySelector<HTMLDivElement>('.interactive');
@@ -50,7 +51,7 @@ const DarkBackground = () => {
     // };
 
     return (
-        <div className="Layout">
+        <div className="dark-bg">
             <div className="gradient-bg">
                 <svg xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -70,7 +71,6 @@ const DarkBackground = () => {
                 <div className="interactive"></div>
                 </div>
             </div>
-            <Outlet />
         </div>
    
     );

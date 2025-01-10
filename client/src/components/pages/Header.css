@@ -1,0 +1,26 @@
+header {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.site-title {
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    margin-left: 10px;
+}
+
+.logo {
+    height: 10vh;
+    width: auto;
+    max-height: 85px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
