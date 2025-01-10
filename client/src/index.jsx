@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Layout from "./components/pages/Layout";
-import Landing from "./components/pages/Landing";
+import Welcome from "./components/pages/Welcome";
 import NotFound from "./components/pages/NotFound";
 
 import {
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Landing />} />
+        <Route index element={<Welcome />} />
       </Route>
     </Route>
   )
