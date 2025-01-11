@@ -4,6 +4,7 @@ import App from "./components/App";
 import Layout from "./components/pages/Layout";
 import Welcome from "./components/pages/Welcome";
 import NotFound from "./components/pages/NotFound";
+import GameCanvas from "./components/pages/GameCanvas";
 
 import {
   createBrowserRouter,
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Welcome />} />
+        <Route path="Game" element={<GameCanvas />} />
       </Route>
     </Route>
   )

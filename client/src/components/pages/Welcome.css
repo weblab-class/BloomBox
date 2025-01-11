@@ -11,11 +11,13 @@
     margin: auto;
     width: var(--container-width);
     height: var(--container-height);
+    /* flex-direction: column; */
+
 }
 
 .column {
     color: white;
-    /* outline: 2px solid yellow; */
+    outline: 2px solid yellow;
     flex: 1;
     display: flex;
     justify-content: center;
