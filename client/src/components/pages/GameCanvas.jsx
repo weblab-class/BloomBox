@@ -7,7 +7,7 @@ import audioBar from "../../assets/images/white-audio.svg";
 const GameCanvas = () => {
     return (
         <div>
-            <div className="main-content">
+            <div className="main-game-container">
                 <div className="sadf">
                     Hi Player
                 </div>

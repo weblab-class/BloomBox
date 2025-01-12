@@ -1,8 +1,12 @@
-.main-content {
+.main-game-container {
+    /* outline: 1px solid yellow; */
     display: flex;
     flex-direction: column;
     gap: 10px;
     color: white;
+    width: 90vw;
+    height: var(--container-height);
+    margin: auto;
 }
 .game-canvas-container {
     /* outline: 2px solid yellow; */
@@ -13,6 +17,7 @@
     border-radius: 8px;
     border: 1px solid #d4d4d4;
     padding: 20px 20px;
+    margin: auto;
 }
 
 .game-canvas {

@@ -17,6 +17,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "884615792154-63asahc9uepm1aflp9rvq7sq12pm1cg8.apps.googleusercontent.com";
+const SPOTIFY_CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

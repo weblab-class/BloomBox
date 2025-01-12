@@ -11,17 +11,19 @@
     margin: auto;
     width: var(--container-width);
     height: var(--container-height);
+    /* flex-direction: row; */
     /* flex-direction: column; */
 
 }
 
 .column {
     color: white;
-    outline: 2px solid yellow;
+    /* outline: 2px solid yellow; */
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* flex-direction: row; */
 }
 
 .written-content {

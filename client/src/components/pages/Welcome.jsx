@@ -2,6 +2,8 @@ import React from "react";
 import "./Welcome.css";
 import { mainTracks } from "../../assets/data/mainTracks";
 
+const SPOTIFY_CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
+
 function generateImages(){
     const min = 0;
     const max = mainTracks.length;
@@ -22,12 +24,12 @@ const Welcome = () => {
                             Whether you are a seasoned performer or just want to have fun, BloomBox brings everyone together and out of their comfort zone.
                         </div>
                         <div className="login-button-container">
-                        <button class="btn-76">
-                            Login With Spotify
-                            <span class="top"></span>
-                            <span class="right"></span>
-                            <span class="bottom"></span>
-                            <span class="left"></span>
+                            <button class="btn-76">
+                                Login With Spotify
+                                <span class="top"></span>
+                                <span class="right"></span>
+                                <span class="bottom"></span>
+                                <span class="left"></span>
                             </button>
                         </div>
                     </div>
