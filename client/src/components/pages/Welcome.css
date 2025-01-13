@@ -42,32 +42,6 @@
 
 }
 
-.album-grid {
-    /* outline: 2px solid yellow; */
-    background-color: transparent;
-    backdrop-filter: blur(10px) brightness(125%);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-gap: 0.5em;
-    width: var(--grid-size);
-    height: var(--grid-size);
-    rotate: 7deg;
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #d4d4d4;
-}
-
-.album-cover img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-    border: 1px solid #d4d4d4;
-    box-sizing: border-box;
-}
 
 .btn-76,
 .btn-76 *,

@@ -1,5 +1,5 @@
 .main-game-container {
-    /* outline: 1px solid yellow; */
+    outline: 1px solid green;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -9,7 +9,7 @@
     margin: auto;
 }
 .game-canvas-container {
-    /* outline: 2px solid yellow; */
+    outline: 2px solid yellow;
     width: 75vw;
     height: 80vh;
     background-color: transparent;
@@ -21,7 +21,7 @@
 }
 
 .game-canvas {
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
     height: 100%;
     width: 100%;
     box-sizing: border-box;

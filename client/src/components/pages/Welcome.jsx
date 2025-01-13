@@ -2,6 +2,7 @@ import React from "react";
 import "./Welcome.css";
 import { mainTracks } from "../../assets/data/mainTracks";
 import { get } from "../../utilities";
+import AlbumGrid from "./AlbumGrid";
 
 const SPOTIFY_CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 
@@ -37,35 +38,7 @@ const Welcome = () => {
 
                 </div>
                 <div className="column">
-                    <div className="album-grid">
-                        <div className="album-cover">
-                            <img src={mainTracks[0].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[1].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[2].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[3].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[4].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[5].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[6].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[7].image} />
-                        </div>
-                        <div className="album-cover">
-                            <img src={mainTracks[8].image} />
-                        </div>
-                    </div>
+                    <AlbumGrid />
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Welcome />} />
-        <Route path="Game" element={<GameCanvas />} />
+        <Route path="play" element={<GameCanvas />} />
       </Route>
     </Route>
   )
