@@ -29,7 +29,9 @@ const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
 
 const api = require("./api");
-const auth = require("./auth");
+const auth = require("./google-auth");
+
+const cors = require("cors");
 
 // socket stuff
 const socketManager = require("./server-socket");
@@ -38,7 +40,7 @@ const socketManager = require("./server-socket");
 // TODO change connection URL after setting up your team database
 const mongoConnectionURL = process.env.MONGO_SRV;
 // TODO change database name to the name you chose
-const databaseName = "FILL_ME_IN";
+const databaseName = "BloomBoxDatabase";
 
 // mongoose 7 warning
 mongoose.set("strictQuery", false);
@@ -57,6 +59,7 @@ mongoose
 const app = express();
 app.use(validator.checkRoutes);
 
+
 // allow us to process POST requests
 app.use(express.json());
 
@@ -64,7 +67,7 @@ app.use(express.json());
 app.use(
   session({
     // TODO: add a SESSION_SECRET string in your .env file, and replace the secret with process.env.SESSION_SECRET
-    secret: "session-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -72,7 +75,19 @@ app.use(
 
 // this checks if the user is logged in, and populates "req.user"
 app.use(auth.populateCurrentUser);
-
+// app.use(
+//   "/",
+//   (_req, res, next) => {
+//     res.set({
+//       "access-control-allow-origin": "*",
+//       "access-control-allow-headers": "content-type",
+//     });
+//     next();
+//   },
+//   // Next middleware(s)
+// );
+app.use(cors());
+// app.use(cors({ origin: 'http://localhost:5173' }));
 // connect user-defined routes
 app.use("/api", api);
 
