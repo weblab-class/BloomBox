@@ -3,6 +3,7 @@ import "./AlbumGrid.css";
 import { mainTracks } from "../../assets/data/mainTracks";
 
 const NUM_TRACKS = 9;
+// Weird Auto Reload Glitch: Image & Audio not matching
 
 const AlbumGrid = () => {
     const chooseTracks = () => {
@@ -19,14 +20,24 @@ const AlbumGrid = () => {
         return tracks;
     }
 
+    const handleMouseOver = (event) => {
+        const audio = event.target.parentElement.getElementsByTagName("audio")[0];
+        audio.play();
+    };
+
+    const handleMouseLeave = (event) => {
+        const audio = event.target.parentElement.getElementsByTagName("audio")[0];
+        audio.pause();
+    }
+
     const displayTracks = chooseTracks().map(track =>
-        <div className="album-cover">
+        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="album-cover">
             <img src={track.image}/>
+            <audio autoPlay>
+                <source src={track.audio} type="audio/mpeg"/>
+            </audio>
         </div>
     );
-    // const playAudio = (track) => {
-
-    // }; 
 
     return (
         <div className="album-grid">
@@ -34,9 +45,5 @@ const AlbumGrid = () => {
         </div>
     );
 };
-
-{/* <audio autoplay id="audio-1">
-    <source src={mainTracks[0].audio} type="audio/mpeg"/>
-</audio> */}
 
 export default AlbumGrid;
