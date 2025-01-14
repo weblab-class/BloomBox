@@ -16,4 +16,5 @@ const MainButton = ({ text , onClickAction }) => {
     );
 };
 
+// border: 1px solid #d4d4d4;
 export default MainButton;
