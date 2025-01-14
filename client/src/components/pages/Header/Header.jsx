@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
-import fillLogo from "../../assets/images/icon-fill.svg";
-import noFillLogo from "../../assets/images/icon-no-fill.svg";
+import fillLogo from "../../../assets/images/icon-fill.svg";
+import noFillLogo from "../../../assets/images/icon-no-fill.svg";
 
 const Header = () => {
     return (

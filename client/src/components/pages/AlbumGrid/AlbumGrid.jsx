@@ -1,6 +1,6 @@
 import React from "react";
 import "./AlbumGrid.css";
-import { mainTracks } from "../../assets/data/mainTracks";
+import { mainTracks } from "../../../assets/data/mainTracks";
 
 const NUM_TRACKS = 9;
 // Weird Auto Reload Glitch: Image & Audio not matching

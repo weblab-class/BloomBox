@@ -1,7 +1,7 @@
 import React from "react";
 import "./Lobby.css";
-import MainButton from "./MainButton";
-import Avatar from "./Avatar";
+import MainButton from "../MainButton/MainButton";
+import Avatar from "../Avatar/Avatar";
 
 const Lobby = () => {
     return (

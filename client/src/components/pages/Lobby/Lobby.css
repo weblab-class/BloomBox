@@ -1,5 +1,4 @@
 .lobby-container {
-    /* outline: 2px solid yellow; */
     width: 100%;
     height: 100%;
     display: grid;
@@ -11,7 +10,6 @@
 }
 
 .lobby-header {
-    /* outline: 2px solid red; */
     display: flex;
     justify-content: space-between;
 }
@@ -22,7 +20,6 @@
 }
 
 .lobby-main {
-    /* outline: 2px solid green; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +27,6 @@
 }
 
 .lobby-footer {
-    /* outline: 2px solid blue; */
     display: flex;
     justify-content: space-between;
     align-items: flex-end;

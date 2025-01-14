@@ -29,14 +29,12 @@
 }
 
 .avatar-name {
-    /* outline: 1px solid green; */
     width: 100%;
     text-align: center;
     font-weight: 600;
 }
 
 .avatar-speak-indicator {
-    /* outline: 1px solid yellow; */
     width: 100%;
     display: flex;
     align-items: center;

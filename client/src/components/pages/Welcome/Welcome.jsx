@@ -1,8 +1,8 @@
 import React from "react";
 import "./Welcome.css";
-import { get } from "../../utilities";
-import AlbumGrid from "./AlbumGrid";
-import MainButton from "./MainButton";
+import { get } from "../../../utilities";
+import AlbumGrid from "../AlbumGrid/AlbumGrid";
+import MainButton from "../MainButton/MainButton/";
 
 const Welcome = () => {
     return (

@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import Layout from "./components/pages/Layout";
-import Welcome from "./components/pages/Welcome";
+import Layout from "./components/pages/Layout/Layout";
+import Welcome from "./components/pages/Welcome/Welcome";
 import NotFound from "./components/pages/NotFound";
-import GameCanvas from "./components/pages/GameCanvas";
+import GameCanvas from "./components/pages/GameCanvas/GameCanvas";
 
 import {
   createBrowserRouter,
