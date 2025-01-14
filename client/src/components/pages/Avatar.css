@@ -1,0 +1,48 @@
+.avatar-container {
+    background-color: transparent;
+    backdrop-filter: blur(10px) brightness(125%);
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+    height: 75%;
+    width: 20%;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+    justify-items: center;
+    gap: 1em;
+    padding: 1.5em;
+    box-sizing: border-box;
+}
+
+.avatar-pic {
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+}
+
+.avatar-pic img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #d4d4d4;
+}
+
+.avatar-name {
+    /* outline: 1px solid green; */
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.avatar-speak-indicator {
+    /* outline: 1px solid yellow; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-speak-indicator img {
+    width: 25%;
+}

@@ -1,19 +1,23 @@
 import React from "react";
 import "./GameCanvas.css";
-import { mainTracks } from "../../assets/data/mainTracks";
-import audioBar from "../../assets/images/white-audio.svg";
-// import background from "../../assets/images/main-background.svg"
+import Lobby from "./Lobby";
 
 const GameCanvas = () => {
     return (
         <div>
             <div className="main-game-container">
-                <div className="sadf">
-                    Hi Player
-                </div>
                 <div className="game-canvas-container">
                     <div className="game-canvas">
-                        <div className="avatars">
+                        <Lobby/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+/*
+<div className="avatars">
                             <div className="avatar-container">
                                 <div className="avatar-pic">
                                     <img src={mainTracks[9].image} />
@@ -51,11 +55,6 @@ const GameCanvas = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+*/
 
 export default GameCanvas;
