@@ -30,8 +30,8 @@ const AlbumGrid = () => {
         audio.pause();
     }
 
-    const displayTracks = chooseTracks().map(track =>
-        <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="album-cover">
+    const displayTracks = chooseTracks().map((track, index) =>
+        <div key={index} onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave} className="album-cover">
             <img src={track.image}/>
             <audio autoPlay>
                 <source src={track.audio} type="audio/mpeg"/>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./GameCanvas.css";
 import Lobby from "../Lobby/Lobby";
+import MainMenu from "../MainMenu/MainMenu";
 
 const GameCanvas = () => {
     return (
@@ -8,7 +9,7 @@ const GameCanvas = () => {
             <div className="main-game-container">
                 <div className="game-canvas-container">
                     <div className="game-canvas">
-                        <Lobby/>
+                        <MainMenu/>
                     </div>
                 </div>
             </div>

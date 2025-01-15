@@ -6,6 +6,7 @@
   box-sizing: border-box;
   padding: 4px;
   height: max-content;
+  width: max-content;
 }
 
 .btn-76,
@@ -29,7 +30,7 @@
   margin: 0;
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 .btn-76:disabled {
   cursor: default;
