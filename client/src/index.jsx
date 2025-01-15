@@ -2,9 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Layout from "./components/pages/Layout/Layout";
+import Landing from "./components/pages/Landing/Landing";
 import Welcome from "./components/pages/Welcome/Welcome";
 import NotFound from "./components/pages/NotFound";
 import GameCanvas from "./components/pages/GameCanvas/GameCanvas";
+import MainMenu from "./components/pages/MainMenu/MainMenu";
+import Join from "./components/pages/Join/Join";
+import Room from "./components/pages/Room/Room";
+import Profile from "./components/pages/Profile/Profile";
 
 import {
   createBrowserRouter,
@@ -13,18 +18,19 @@ import {
   RouterProvider
 } from 'react-router-dom'
 
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
-//TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "884615792154-63asahc9uepm1aflp9rvq7sq12pm1cg8.apps.googleusercontent.com";
-const SPOTIFY_CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Welcome />} />
-        <Route path="play" element={<GameCanvas />} />
+        <Route index element={<Landing />} />
+        <Route path="welcome" element={<Welcome/>} />
+        <Route path="game" element={<GameCanvas />}> 
+          <Route index element={<MainMenu />}/>
+          <Route path="join" element={<Join/>}/>
+          <Route path="room/:roomId" element={<Room />}/>
+          <Route path="profile/:userId" element={<Profile/>}/>
+        </Route>
       </Route>
     </Route>
   )
@@ -32,7 +38,5 @@ const router = createBrowserRouter(
 
 // renders React Component "Root" into the DOM element with ID "root"
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-    <RouterProvider router={router} />
-  </GoogleOAuthProvider>
+  <RouterProvider router={router} />
 );

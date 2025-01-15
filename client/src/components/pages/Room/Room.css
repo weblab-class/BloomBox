@@ -1,4 +1,4 @@
-.lobby-container {
+.room-container {
     width: 100%;
     height: 100%;
     display: grid;
@@ -9,7 +9,7 @@
 
 }
 
-.lobby-header {
+.room-header {
     display: flex;
     justify-content: space-between;
 }
@@ -19,14 +19,14 @@
     font-size: 32px;
 }
 
-.lobby-main {
+.room-main {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
 }
 
-.lobby-footer {
+.room-footer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;

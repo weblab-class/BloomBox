@@ -1,7 +1,8 @@
 import React from "react";
 import "./GameCanvas.css";
-import Lobby from "../Lobby/Lobby";
+import Room from "../Room/Room";
 import MainMenu from "../MainMenu/MainMenu";
+import { Outlet } from "react-router-dom";
 
 const GameCanvas = () => {
     return (
@@ -9,7 +10,8 @@ const GameCanvas = () => {
             <div className="main-game-container">
                 <div className="game-canvas-container">
                     <div className="game-canvas">
-                        <Lobby />
+                        <Outlet/>
+                        {/* <Room /> */}
                         {/* <MainMenu/> */}
                     </div>
                 </div>

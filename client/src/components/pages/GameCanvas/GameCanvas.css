@@ -7,6 +7,7 @@
     width: 90vw;
     height: var(--container-height);
     margin: auto;
+    z-index: -1;
 }
 .game-canvas-container {
     /* outline: 2px solid yellow; */
