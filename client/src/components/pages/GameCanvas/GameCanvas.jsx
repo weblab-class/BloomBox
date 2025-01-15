@@ -9,7 +9,8 @@ const GameCanvas = () => {
             <div className="main-game-container">
                 <div className="game-canvas-container">
                     <div className="game-canvas">
-                        <MainMenu/>
+                        <Lobby />
+                        {/* <MainMenu/> */}
                     </div>
                 </div>
             </div>

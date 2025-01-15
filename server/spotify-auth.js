@@ -2,7 +2,7 @@ const querystring = require("querystring")
 
 const CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 const AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize?";
-const REDIRECT_URI = "http://localhost:5173/Game";
+const REDIRECT_URI = "http://localhost:5173/play/";
 const SCOPES = [];
 const SCOPE = SCOPES.join(" ");
 
@@ -15,16 +15,15 @@ const generateRandomString = (length) => {
 
 function login(req, res) {
     const state = generateRandomString(16);
-    res.redirect(
-        AUTHORIZE_ENDPOINT +
-        querystring.stringify({
-            response_type: 'code',
-            client_id: CLIENT_ID,
-            scope: SCOPE,
-            redirect_uri: REDIRECT_URI,
-            state: state
-        })
-    );
+    const authUrl = String(AUTHORIZE_ENDPOINT +
+    querystring.stringify({
+        response_type: 'code',
+        client_id: CLIENT_ID,
+        scope: SCOPE,
+        redirect_uri: REDIRECT_URI,
+        state: state
+    }));
+    return res.send({ url: authUrl });
 }
 
 module.exports = {
