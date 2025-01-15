@@ -12,9 +12,9 @@ const Lobby = () => {
             </div>
             <div className="lobby-main">
                 <Avatar/>
+                {/* <Avatar/>
                 <Avatar/>
-                <Avatar/>
-                <Avatar/>
+                <Avatar/> */}
             </div>
             <div className="lobby-footer">
                 <MainButton text="settings" onClick={() => {}}/>
