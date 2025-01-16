@@ -31,15 +31,13 @@ const path = require("path"); // provide utilities for working with file and dir
 const api = require("./api");
 const auth = require("./google-auth");
 
-const cors = require("cors");
 
 // socket stuff
 const socketManager = require("./server-socket");
 
 // Server configuration below
-// TODO change connection URL after setting up your team database
 const mongoConnectionURL = process.env.MONGO_SRV;
-// TODO change database name to the name you chose
+
 const databaseName = "BloomBoxDatabase";
 
 // mongoose 7 warning
@@ -75,19 +73,7 @@ app.use(
 
 // this checks if the user is logged in, and populates "req.user"
 app.use(auth.populateCurrentUser);
-// app.use(
-//   "/",
-//   (_req, res, next) => {
-//     res.set({
-//       "access-control-allow-origin": "*",
-//       "access-control-allow-headers": "content-type",
-//     });
-//     next();
-//   },
-//   // Next middleware(s)
-// );
-app.use(cors());
-// app.use(cors({ origin: 'http://localhost:5173' }));
+
 // connect user-defined routes
 app.use("/api", api);
 
@@ -120,6 +106,8 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
+// module.exports = mongoose;
 
 // hardcode port to 3000 for now
 const port = 3000;

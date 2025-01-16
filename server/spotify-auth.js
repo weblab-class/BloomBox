@@ -1,8 +1,9 @@
 const querystring = require("querystring")
+const User = require("./models/user");
 
 const CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 const AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize?";
-const REDIRECT_URI = "http://localhost:5173/play/";
+const REDIRECT_URI = "http://localhost:5173/game/";
 const SCOPES = [];
 const SCOPE = SCOPES.join(" ");
 
@@ -11,6 +12,10 @@ const generateRandomString = (length) => {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const values = crypto.getRandomValues(new Uint8Array(length));
     return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+}
+
+function getOrCreateUser(user) {
+
 }
 
 function login(req, res) {
@@ -26,6 +31,21 @@ function login(req, res) {
     return res.send({ url: authUrl });
 }
 
+function logout(req, res) {
+
+}
+
+function populateCurrentUser(req, res, next) {
+
+}
+
+function ensureLoggedIn(req, res, next) {
+
+}
+
 module.exports = {
     login,
+    logout,
+    populateCurrentUser,
+    ensureLoggedIn,
 };

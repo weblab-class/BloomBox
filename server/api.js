@@ -11,11 +11,12 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Room = require("./models/room");
 
-// import authentication library
-const auth = require("./google-auth");
 
 const spotify_auth = require("./spotify-auth");
+
+const webRTC = require("./webRTC");
 
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
@@ -24,15 +25,8 @@ const router = express.Router();
 const socketManager = require("./server-socket");
 
 router.get("/login", spotify_auth.login);
-router.post("/logout", auth.logout);
-router.get("/whoami", (req, res) => {
-  if (!req.user) {
-    // not logged in
-    return res.send({});
-  }
-
-  res.send(req.user);
-});
+router.post("/rooms/create", webRTC.createRoom);
+router.get("/rooms/listen/:roomId", webRTC.listen);
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
