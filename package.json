@@ -36,11 +36,10 @@
     "react-redux": "^9.2.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^6.0.0",
+    "react-spinners": "^0.15.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "spotify-web-api-js": "^1.5.2",
-    "url-loader": "^4.1.1",
-    "voximplant-websdk": "^4.8.5-2860"
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^3.0.0",
