@@ -19,46 +19,62 @@ import am from "../images/am.jpg";
 import five from "../images/5.jpg";
 import hotFuss from "../images/hot-fuss.jpg";
 
+import beforeHeCheats from "../videos/before-he-cheats.mp4";
+import joleneVideo from "../videos/jolene.mp4";
+import oldTownRoad from "../videos/old-town-road.mp4";
+import sweetHomeAlabama from "../videos/sweet-home-alabama.mp4";
+import texasHoldEm from "../videos/texas-hold-em.mp4";
+import birdsOfAFeather from "../videos/birds-of-feather.mp4";
+import cruelSummer from "../videos/cruel-summer.mp4";
+import driversLicense from "../videos/drivers-license.mp4";
+import killBill from "../videos/kill-bill.mp4";
+import unwrittenVideo from "../videos/unwritten.mp4";
+import bodakYellow from "../videos/bodak-yellow.mp4";
+import godsPlan from "../videos/gods-plan.mp4";
+import humble from  "../videos/humble.mp4";
+import rapGod from  "../videos/rap-god.mp4";
+import superBass from  "../videos/super-bass.mp4";
+import comeAsYouAre from  "../videos/come-as-you-are.mp4";
+import creep from  "../videos/creep.mp4";
+import doIWannaKnow from  "../videos/do-i-wanna-know.mp4";
+import flyAway from  "../videos/fly-away.mp4";
+import mrBrightside from  "../videos/mr-brightside.mp4";
+
 export const country = [
     {
         album: "Some Hearts",
         song: "Before He Cheats",
         artist: "Carrie Underwood",
-        audio: null,
+        video: beforeHeCheats,
         image: someHearts,
-        lyrics: null,
     },
     {
         album: "Jolene",
         song: "Jolene",
         artist: "Dolly Parton",
-        audio: null,
+        video: joleneVideo,
         image: jolene,
-        lyrics: null,
     },
     {
         album: "7",
-        song: "Old Town Road",
-        artist: "Lil Nas X",
-        audio: null,
+        song: "Old Town Road (Remix)",
+        artist: "Lil Nas X ft. Billy Ray Cyrus",
+        video: oldTownRoad,
         image: seven,
-        lyrics: null,
     },
     {
         album: "Second Helping",
         song: "Sweet Home Alabama",
         artist: "Lynyrd Skynyrd",
-        audio: null,
+        video: sweetHomeAlabama,
         image: secondHelping,
-        lyrics: null,
     },
     {
         album: "Cowboy Carter",
         song: "Texas Hold 'EM",
         artist: "Beyonce",
-        audio: null,
+        video: texasHoldEm,
         image: cowboyCarter,
-        lyrics: null,
     },
 ]
 
@@ -67,41 +83,36 @@ export const pop = [
         album: "Hit Me Hard and Soft",
         song: "Birds of a Feather",
         artist: "Billie Eilish",
-        audio: null,
+        video: birdsOfAFeather,
         image: hitMeHardAndSoft,
-        lyrics: null,
     },
     {
         album: "Lover",
         song: "Cruel Summer",
         artist: "Taylor Swift",
-        audio: null,
+        video: cruelSummer,
         image: lover,
-        lyrics: null,
     },
     {
         album: "Sour",
         song: "Driver's License",
         artist: "Olivia Rodrigo",
-        audio: null,
+        video: driversLicense,
         image: sour,
-        lyrics: null,
     },
     {
         album: "SOS",
         song: "Kill Bill",
         artist: "SZA",
-        audio: null,
+        video: killBill,
         image: sos,
-        lyrics: null,
     },
     {
         album: "Unwritten",
         song: "Unwritten",
         artist: "Natasha Bedingfield",
-        audio: null,
+        video: unwrittenVideo,
         image: unwritten,
-        lyrics: null,
     },
 ]
 
@@ -110,41 +121,36 @@ export const rap = [
         album: "Invasion of Privacy",
         song: "Bodak Yellow",
         artist: "Cardi B",
-        audio: null,
+        video: bodakYellow,
         image: invasionOfPrivacy,
-        lyrics: null,
     },
     {
         album: "Scorpion",
         song: "God's Plan",
         artist: "Drake",
-        audio: null,
+        video: godsPlan,
         image: scorpion,
-        lyrics: null,
     },
     {
         album: "DAMN",
         song: "Humble",
         artist: "Kendrick Lamar",
-        audio: null,
+        video: humble,
         image: damn,
-        lyrics: null,
     },
     {
         album: "The Marshall Mathers LP 2",
         song: "Rap God",
         artist: "Eminem",
-        audio: null,
+        video: rapGod,
         image: marshallMathers,
-        lyrics: null,
     },
     {
         album: "Pink Friday",
         song: "Super Bass",
         artist: "Nicki Minaj",
-        audio: null,
+        video: superBass,
         image: pinkFriday,
-        lyrics: null,
     },
 ]
 
@@ -153,40 +159,35 @@ export const rock = [
         album: "Nevermind",
         song: "Come As You Are",
         artist: "Nirvana",
-        audio: null,
+        video: comeAsYouAre,
         image: nevermind,
-        lyrics: null,
     },
     {
         album: "Pablo Honey",
         song: "Creep",
         artist: "Radiohead",
-        audio: null,
+        video: creep,
         image: pabloHoney,
-        lyrics: null,
     },
     {
         album: "AM",
         song: "Do I Wanna Know?",
         artist: "Arctic Monkeys",
-        audio: null,
+        video: doIWannaKnow,
         image: am,
-        lyrics: null,
     },
     {
         album: "5",
         song: "Fly Away",
         artist: "Lenny Kravitz",
-        audio: null,
+        video: flyAway,
         image: five,
-        lyrics: null,
     },
     {
         album: "Hot Fuss",
         song: "Mr. Brightside",
         artist: "The Killers",
-        audio: null,
+        video: mrBrightside,
         image: hotFuss,
-        lyrics: null,
     },
 ]
