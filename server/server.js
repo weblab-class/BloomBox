@@ -30,6 +30,7 @@ const path = require("path"); // provide utilities for working with file and dir
 
 const api = require("./api");
 
+const socketManager = require("./server-socket");
 
 // Server configuration below
 const mongoConnectionURL = process.env.MONGO_SRV;
@@ -101,11 +102,11 @@ app.use((err, req, res, next) => {
   });
 });
 
-// module.exports = mongoose;
 
 // hardcode port to 3000 for now
 const port = 3000;
 const server = http.Server(app);
+socketManager.init(server);
 
 server.listen(port, () => {
   console.log(`Server running on port: ${port}`);

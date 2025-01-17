@@ -2,7 +2,6 @@ import React from "react";
 import "./MainMenu.css";
 import MainButton from "../MainButton/MainButton";
 import ScrollingMarquee from "../ScrollingMarquee/ScrollingMarquee";
-import { createRoom } from "../../../webRTC";
 import { useNavigate } from "react-router-dom";
 
 const USER_ID = 1;
@@ -16,8 +15,6 @@ const MainMenu = () => {
             </div>
             <div className="main-menu-body">
                 <MainButton text="create room" onClickAction={async () => { 
-                    const roomId = await createRoom(USER_ID); 
-                    navigate(`room/${roomId}`, { relative: 'path' });
                 }}/>
                 <MainButton text="join room" onClickAction={() => { navigate('join', { relative: 'path' }); }}/>
                 <MainButton text="view profile" onClickAction={() => { navigate('profile/1', { relative: 'path' }); }}/>

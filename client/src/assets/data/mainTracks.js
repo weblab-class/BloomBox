@@ -17,7 +17,7 @@ import bornThisWay from "../images/born-this-way.jpg";
 import twenty4KMagic from "../images/24k-magic.jpg";
 import sos from "../images/sos.jpg";
 
-import whereThisFlowerBlooms from "../audios/whereThisFlowerBlooms.mp3";
+import whereThisFlowerBlooms from "../audios/WhereThisFlowerBlooms.mp3";
 import sticky from "../audios/sticky.mp3";
 import earfquake from "../audios/earfquake.mp3";
 import iluv from "../audios/iluv.mp3";
