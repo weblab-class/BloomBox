@@ -29,11 +29,7 @@ const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
 
 const api = require("./api");
-const auth = require("./google-auth");
 
-
-// socket stuff
-const socketManager = require("./server-socket");
 
 // Server configuration below
 const mongoConnectionURL = process.env.MONGO_SRV;
@@ -71,8 +67,6 @@ app.use(
   })
 );
 
-// this checks if the user is logged in, and populates "req.user"
-app.use(auth.populateCurrentUser);
 
 // connect user-defined routes
 app.use("/api", api);
@@ -112,7 +106,6 @@ app.use((err, req, res, next) => {
 // hardcode port to 3000 for now
 const port = 3000;
 const server = http.Server(app);
-socketManager.init(server);
 
 server.listen(port, () => {
   console.log(`Server running on port: ${port}`);

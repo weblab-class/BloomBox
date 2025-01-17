@@ -1,18 +1,24 @@
 const Room = require("./models/room");
 
 function createRoom (req, res) {
-    const { roomId, offer, userId } = req.body;
+    try {
+        const { roomId, offer, userId } = req.body;
 
-    const newRoom = new Room({
-        roomId: roomId,
-        participants: [userId],
-        offer: offer,
-    });
+        const newRoom = new Room({
+            roomId: roomId,
+            participants: [userId],
+            offer: offer,
+        });
+    
+        room = newRoom.save();
+    
+        // req.session = room;
+        res.send(room);
 
-    room = newRoom.save();
-
-    req.session = room;
-    res.send(room);
+    } catch (error) {
+        console.log(`Failed to create room: ${error}`);
+        res.status(401).send({ error });
+    }
 }
 
 function listen (req, res) {

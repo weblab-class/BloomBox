@@ -14,26 +14,20 @@ const User = require("./models/user");
 const Room = require("./models/room");
 
 
-const spotify_auth = require("./spotify-auth");
+const auth = require("./auth");
 
 const webRTC = require("./webRTC");
 
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
 
-//initialize socket
-const socketManager = require("./server-socket");
-
-router.get("/login", spotify_auth.login);
+// router.get("/login", spotify_auth.login);
+router.get("/users/authorize", auth.authorize);
+router.get("/users/create", auth.create);
+router.get("/users/current", auth.current);
 router.post("/rooms/create", webRTC.createRoom);
 router.get("/rooms/listen/:roomId", webRTC.listen);
 
-router.post("/initsocket", (req, res) => {
-  // do nothing if user not logged in
-  if (req.user)
-    socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
-  res.send({});
-});
 
 // |------------------------------|
 // | write your API methods below!|

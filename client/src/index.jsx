@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Layout from "./components/pages/Layout/Layout";
 import Landing from "./components/pages/Landing/Landing";
-import Welcome from "./components/pages/Welcome/Welcome";
+import Login from "./components/pages/Login/Login";
 import NotFound from "./components/pages/NotFound";
 import GameCanvas from "./components/pages/GameCanvas/GameCanvas";
 import MainMenu from "./components/pages/MainMenu/MainMenu";
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Landing />} />
-        <Route path="welcome" element={<Welcome/>} />
+        <Route path="login" element={<Login/>} />
         <Route path="game" element={<GameCanvas />}> 
           <Route index element={<MainMenu />}/>
           <Route path="join" element={<Join/>}/>
