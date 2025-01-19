@@ -16,7 +16,7 @@ import {
   Route,
   RouterProvider
 } from 'react-router-dom'
-
+import { SocketContextProvider } from "./context/SocketContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +26,11 @@ const router = createBrowserRouter(
         <Route path="game" element={<GameCanvas />}> 
           <Route index element={<MainMenu />}/>
           <Route path="join" element={<Join/>}/>
-          <Route path="room/:roomId" element={<Room />}/>
+          <Route path="room/:roomId" element={
+            <SocketContextProvider>
+              <Room />
+            </SocketContextProvider>
+          }/>
           <Route path="profile/:userId" element={<Profile/>}/>
         </Route>
       </Route>
@@ -36,5 +40,5 @@ const router = createBrowserRouter(
 
 // renders React Component "Root" into the DOM element with ID "root"
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+    <RouterProvider router={router} />
 );

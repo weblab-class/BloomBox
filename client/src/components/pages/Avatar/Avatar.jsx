@@ -3,7 +3,7 @@ import "./Avatar.css";
 import { mainTracks } from "../../../assets/data/mainTracks";
 import soundIndicator from "../../../assets/images/white-audio.svg";
 
-const Avatar = () => {
+const Avatar = ({ sound }) => {
     return (
         <div className="avatar-container">
             <div className="avatar-pic">
@@ -12,6 +12,7 @@ const Avatar = () => {
             <div className="avatar-name">Player Name</div>
             <div className="avatar-speak-indicator">
                 <img src={soundIndicator} />
+                <audio ref={sound}/>
             </div>
         </div>
     );
