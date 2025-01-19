@@ -15,7 +15,8 @@ const Room = () => {
 
         socket.on('full', () => {
             alert(`Room ${roomId} is full!`);
-            navigate("/join");
+            console.log("hi");
+            navigate("../../join", { relative: 'path' });
         });
 
         return () => {
