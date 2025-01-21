@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./MainMenu.css";
 import MainButton from "../MainButton/MainButton";
-import ScrollingMarquee from "../ScrollingMarquee/ScrollingMarquee";
+import Marquee from "../Marquee/Marquee";
 import { useNavigate } from "react-router-dom";
 import { useSocketContext } from "../../../context/SocketContext";
 

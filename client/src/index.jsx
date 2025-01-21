@@ -23,16 +23,16 @@ const router = createBrowserRouter(
     <Route errorElement={<NotFound />} element={<App />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Login/>} />
-        <Route path="game" element={<GameCanvas />}> 
-          <Route index element={<MainMenu />}/>
-          <Route path="join" element={<Join/>}/>
-          <Route path="room/:roomId" element={
-            <SocketContextProvider>
-              <Room />
-            </SocketContextProvider>
-          }/>
-          <Route path="profile/:userId" element={<Profile/>}/>
-        </Route>
+          <Route path="game" element={<GameCanvas />}> 
+            <Route index element={<MainMenu />}/>
+            <Route path="join" element={<Join/>}/>
+            <Route path="room/:roomId" element={
+              <SocketContextProvider>
+                <Room />
+              </SocketContextProvider>
+            }/>
+            <Route path="profile/:userId" element={<Profile/>}/>
+          </Route>
       </Route>
     </Route>
   )

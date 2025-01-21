@@ -19,7 +19,9 @@ const router = express.Router();
 
 router.get("/users/authorize", auth.authorize);
 router.get("/users/create", auth.create);
-router.get("/users/current", auth.current);
+router.get("/users/current", auth.getCurrentUser);
+router.post("/users/current/update", auth.updateUser);
+// router.post("/users/update/song", auth.updateSong);
 // router.post("/rooms/create", null);
 // router.get("/rooms/listen/:roomId", null);
 

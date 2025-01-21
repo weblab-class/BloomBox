@@ -71,6 +71,7 @@
   display: block;
   inset: 0;
   position: absolute;
+  border-radius: 4px;;
 }
 .btn-76 .top {
   border-top: 4px solid var(--neon);

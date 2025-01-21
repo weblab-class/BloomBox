@@ -1,11 +1,11 @@
 import React from "react";
-import "./ScrollingMarquee.css";
+import "./Marquee.css";
 import { mainTracks } from "../../../assets/data/mainTracks";
 import { country, pop, rap, rock} from "../../../assets/data/setList";
 
 const ALBUMS = mainTracks.concat(country, pop, rap, rock);
 
-const ScrollingMarquee = () => {
+const Marquee = () => {
     // FISHER-YATES ALG: https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
     const shuffle = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -26,4 +26,4 @@ const ScrollingMarquee = () => {
     );
 };
 
-export default ScrollingMarquee;
+export default Marquee;
