@@ -4,8 +4,8 @@ const User = require("./models/user");
 const CLIENT_SECRET = process.env.SESSION_SECRET;
 const CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 const AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize?";
-// const REDIRECT_URI = "https://bloombox-j41f.onrender.com/api/users/create/";
-const REDIRECT_URI = "http://localhost:5173/api/users/create/";
+const REDIRECT_URI = "https://bloombox-j41f.onrender.com/api/users/create/";
+// const REDIRECT_URI = "http://localhost:5173/api/users/create/";
 const SCOPES = ["user-read-private", "user-read-email"];
 const SCOPE = SCOPES.join(" ");
 
@@ -109,13 +109,13 @@ async function create(req, res) {
     const userId = userItem._id.toString(); 
     // console.log("HIIIII");
     req.session.user = userItem;
-    res.redirect(
-        `http://localhost:5173/game/profile/${userId}`
-    );
+    // res.redirect(
+    //     `http://localhost:5173/game/profile/${userId}`
+    // );
 
-//     res.redirect(
-//         `https://bloombox-j41f.onrender.com/game/profile/${userId}`
-//     );
+    res.redirect(
+        `https://bloombox-j41f.onrender.com/game/profile/${userId}`
+    );
 }
 
 function logout(req, res) {

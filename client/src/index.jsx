@@ -10,6 +10,7 @@ import Join from "./components/pages/Join/Join";
 import Room from "./components/pages/Room/Room";
 import Profile from "./components/pages/Profile/Profile";
 import Catalog from "./components/pages/Catalog/Catalog";
+import Stage from "./components/pages/Stage/Stage";
 
 import {
   createBrowserRouter,
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
               </SocketContextProvider>
             }/>
             <Route path="room/:roomId/catalog" element={<Catalog/>} />
+            <Route path="room/:roomId/stage" element={<Stage/>} />
             <Route path="profile/:userId" element={<Profile/>}/>
           </Route>
       </Route>
