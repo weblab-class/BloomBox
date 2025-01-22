@@ -1,0 +1,40 @@
+.catalog-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 25% 73%;
+    gap: 2%;
+}
+
+.catalog-header {
+    /* outline: 2px red solid; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+
+.catalog-selection {
+    background-color: black;
+    height: 125px;
+    width: 125px;
+}
+
+.catalog-selection img {
+    height: 100%;
+    width: 100%;
+    /* object-fit: contain; */
+}
+
+.catalog-body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2%;
+    padding: 20px;
+}
+

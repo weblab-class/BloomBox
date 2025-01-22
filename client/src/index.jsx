@@ -9,6 +9,7 @@ import MainMenu from "./components/pages/MainMenu/MainMenu";
 import Join from "./components/pages/Join/Join";
 import Room from "./components/pages/Room/Room";
 import Profile from "./components/pages/Profile/Profile";
+import Catalog from "./components/pages/Catalog/Catalog";
 
 import {
   createBrowserRouter,
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
                 <Room />
               </SocketContextProvider>
             }/>
+            <Route path="room/:roomId/catalog" element={<Catalog/>} />
             <Route path="profile/:userId" element={<Profile/>}/>
           </Route>
       </Route>

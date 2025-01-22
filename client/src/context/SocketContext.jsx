@@ -10,18 +10,18 @@ export const SocketContextProvider = ({ children }) => {
     const [localStream, setLocalStream] = useState();
     const myAudio = useRef();
 
-    useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ audio: true })
-        .then((stream) => {
-            setLocalStream(stream);
-            myAudio.current.srcObject = stream;
-        })
-        .catch((error) => {
-            console.error("Error accesing media devices", error);
-        });
+    // useEffect(() => {
+    //     navigator.mediaDevices.getUserMedia({ audio: true })
+    //     .then((stream) => {
+    //         setLocalStream(stream);
+    //         myAudio.current.srcObject = stream;
+    //     })
+    //     .catch((error) => {
+    //         console.error("Error accesing media devices", error);
+    //     });
         
 
-    }, []);
+    // }, []);
 
     // const answerCall = () => {
     //     const peer = new Peer({ initiator: false, trickle: false, localStream});

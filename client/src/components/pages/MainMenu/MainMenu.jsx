@@ -4,6 +4,7 @@ import MainButton from "../MainButton/MainButton";
 import Marquee from "../Marquee/Marquee";
 import { useNavigate } from "react-router-dom";
 import { useSocketContext } from "../../../context/SocketContext";
+import { get } from "../../../utilities";
 
 const MainMenu = () => {
     const navigate = useNavigate();
@@ -33,7 +34,10 @@ const MainMenu = () => {
             <div className="main-menu-body">
                 <MainButton text="create room" onClickAction={() => { navigate(`room/${generateRoomCode(6)}`, { relative: 'path' }); }}/>
                 <MainButton text="join room" onClickAction={() => { navigate('join', { relative: 'path' }); }}/>
-                <MainButton text="view profile" onClickAction={() => { navigate('profile/1', { relative: 'path' }); }}/>
+                <MainButton text="view profile" onClickAction={async () => {
+                    const user = (await get("/api/users/current")).user;
+                    navigate(`profile/${user._id}`, { relative: 'path' }); 
+                }}/>
             </div>
             <div className="main-menu-panel">
             </div>

@@ -1,9 +1,6 @@
 import React from "react";
 import "./Marquee.css";
-import { mainTracks } from "../../../assets/data/mainTracks";
-import { country, pop, rap, rock} from "../../../assets/data/setList";
-
-const ALBUMS = mainTracks.concat(country, pop, rap, rock);
+import { ALBUMS } from "../../../assets/data/albums";
 
 const Marquee = () => {
     // FISHER-YATES ALG: https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/

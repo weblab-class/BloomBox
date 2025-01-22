@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-import { mainTracks } from "../../../assets/data/mainTracks";
-import { country, pop, rap, rock} from "../../../assets/data/setList";
 import MainButton from "../MainButton/MainButton";
 import { get, post } from "../../../utilities";
-
-const ALBUMS = mainTracks.concat(country, pop, rap, rock);
+import { useNavigate } from "react-router-dom";
+import { ALBUMS } from "../../../assets/data/albums";
 
 const Profile = () => {
     const [user, setUser] = useState(null);
     const [songIndex, setSongIndex] = useState(null);
+    const navigate = useNavigate();
 
     const loadUser = async () => {
         await get("/api/users/current")
@@ -55,7 +54,7 @@ const Profile = () => {
                 {displayImages}
             </div>
             <div className="profile-button-container">
-                <MainButton text="exit to main menu" />
+                <MainButton text="exit to main menu" onClickAction={() => { navigate('/game');}} />
                 <MainButton text="logout" />
             </div>
         </div>

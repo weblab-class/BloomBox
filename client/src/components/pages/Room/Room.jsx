@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Room.css";
 import MainButton from "../MainButton/MainButton";
 import Avatar from "../Avatar/Avatar";
@@ -9,13 +9,33 @@ const Room = () => {
     const { roomId } = useParams();
     const navigate = useNavigate();
     const { myAudio } = useSocketContext();
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         socket.emit('create or join room', roomId);
 
+        socket.on('created: ', () => {
+            setUsers(
+                [
+                    ...users,
+                    1,
+                ]
+            );
+            console.log("HIIII");
+        });
+
+        socket.on('joined: ', () => {
+            setUsers(
+                [
+                    ...users,
+                    1,
+                ]
+            );
+            console.log("HIIII");
+        });
+
         socket.on('full', () => {
             alert(`Room ${roomId} is full!`);
-            console.log("hi");
             navigate("../../join", { relative: 'path' });
         });
 
@@ -36,7 +56,12 @@ const Room = () => {
                 <div className="room-code">ROOM CODE: {roomId}</div>
             </div>
             <div className="room-main">
-                <Avatar sound={myAudio}/>
+                {
+                    users.map((user, index) => {
+                        return <Avatar key={index}/>;
+                    })
+                }
+                {/* <Avatar/> */}
             </div>
             <div className="room-footer">
                 <MainButton text="settings" onClickAction={() => {}}/>
