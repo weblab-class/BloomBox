@@ -1,5 +1,4 @@
 .album-grid {
-    /* outline: 2px solid yellow; */
     background-color: transparent;
     backdrop-filter: blur(10px) brightness(125%);
     display: grid;

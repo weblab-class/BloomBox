@@ -2,10 +2,11 @@ const querystring = require("querystring")
 const User = require("./models/user");
 
 const CLIENT_SECRET = process.env.SESSION_SECRET;
-const CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
+const CLIENT_ID = "9392cec613a645e3aa4739f08149e17d" // NOT LIVE VERSIOn DELETE
+// const CLIENT_ID = "95cd44000f4c4fcc8e52ebe419beaefa";
 const AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize?";
-const REDIRECT_URI = "https://bloombox-j41f.onrender.com/api/users/create/";
-// const REDIRECT_URI = "http://localhost:5173/api/users/create/";
+// const REDIRECT_URI = "https://bloombox-j41f.onrender.com/api/users/create/";
+const REDIRECT_URI = "http://localhost:5173/api/users/create/";
 const SCOPES = ["user-read-private", "user-read-email"];
 const SCOPE = SCOPES.join(" ");
 
@@ -109,13 +110,13 @@ async function create(req, res) {
     const userId = userItem._id.toString(); 
     // console.log("HIIIII");
     req.session.user = userItem;
-    // res.redirect(
-    //     `http://localhost:5173/game/profile/${userId}`
-    // );
-
     res.redirect(
-        `https://bloombox-j41f.onrender.com/game/profile/${userId}`
+        `http://localhost:5173/game/profile/${userId}`
     );
+
+    // res.redirect(
+    //     `https://bloombox-j41f.onrender.com/game/profile/${userId}`
+    // );
 }
 
 function logout(req, res) {
@@ -123,8 +124,6 @@ function logout(req, res) {
 }
 
 function getCurrentUser(req, res) {
-    // console.log("Yippee");
-    // console.log(JSON.stringify(req.session));
     res.send({user: req.session.user});
 }
 
@@ -138,7 +137,6 @@ async function updateUser(req, res) {
     );
     req.session.user = updatedUser;
     res.send({user: updatedUser});
-    // res.send(newFields);
 }
 
 function updateName(req, res) {

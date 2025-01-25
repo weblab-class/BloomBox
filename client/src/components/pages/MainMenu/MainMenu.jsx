@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import "./MainMenu.css";
 import MainButton from "../MainButton/MainButton";
 import Marquee from "../Marquee/Marquee";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSocketContext } from "../../../context/SocketContext";
 import { get } from "../../../utilities";
 
 const MainMenu = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const myUser = location.state?.myUser;
 
     // const { localStream } = useSocketContext();
 
@@ -32,7 +34,12 @@ const MainMenu = () => {
             <div className="main-menu-panel">
             </div>
             <div className="main-menu-body">
-                <MainButton text="create room" onClickAction={() => { navigate(`room/${generateRoomCode(6)}`, { relative: 'path' }); }}/>
+                <MainButton text="create room" onClickAction={() => { 
+                    navigate(`room/${generateRoomCode(6)}`, 
+                        { relative: 'path',
+                          state: { myUser},
+                        }); 
+                }}/>
                 <MainButton text="join room" onClickAction={() => { navigate('join', { relative: 'path' }); }}/>
                 <MainButton text="view profile" onClickAction={async () => {
                     const user = (await get("/api/users/current")).user;

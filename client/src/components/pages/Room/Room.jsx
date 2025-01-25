@@ -2,36 +2,36 @@ import React, { useEffect, useState } from "react";
 import "./Room.css";
 import MainButton from "../MainButton/MainButton";
 import Avatar from "../Avatar/Avatar";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { socket, useSocketContext } from "../../../context/SocketContext";
+import { get } from "../../../utilities";
 
 const Room = () => {
     const { roomId } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
+    const myUser = location.state?.myUser;
     const { myAudio } = useSocketContext();
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([myUser]);
 
     useEffect(() => {
-        socket.emit('create or join room', roomId);
+        
+        socket.emit('create or join room', roomId, myUser);
+        socket.on("joined", (otherUser, senderId) => {
+            setUsers((prevUsers) => [
+                ...prevUsers,
+                otherUser,
+            ]);
 
-        socket.on('created: ', () => {
-            setUsers(
-                [
-                    ...users,
-                    1,
-                ]
-            );
-            console.log("HIIII");
+            socket.emit("others in room", senderId, myUser);
+
         });
 
-        socket.on('joined: ', () => {
-            setUsers(
-                [
-                    ...users,
-                    1,
-                ]
-            );
-            console.log("HIIII");
+        socket.on("others in room", (otherUser) => {
+            setUsers((prevUsers) => [
+                ...prevUsers,
+                otherUser,
+            ]);
         });
 
         socket.on('full', () => {
@@ -50,7 +50,7 @@ const Room = () => {
             <div className="room-header">
                 <MainButton text="Leave" onClickAction={() => {
                     socket.emit('leave room', roomId);
-                    navigate('/game');
+                    navigate('/game', { state: { myUser } });
                     window.location.reload();
                 }}/>
                 <div className="room-code">ROOM CODE: {roomId}</div>
@@ -58,10 +58,9 @@ const Room = () => {
             <div className="room-main">
                 {
                     users.map((user, index) => {
-                        return <Avatar key={index}/>;
+                        return <Avatar key={index} user={user} />;
                     })
                 }
-                {/* <Avatar/> */}
             </div>
             <div className="room-footer">
                 <MainButton text="settings" onClickAction={() => {}}/>

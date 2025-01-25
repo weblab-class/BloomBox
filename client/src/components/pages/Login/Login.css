@@ -5,33 +5,21 @@
 }
 
 .main-content{
-    /* background-color: black; */
-    /* outline: 2px solid yellow; */
     display: flex;
     margin: auto;
     width: var(--container-width);
     height: var(--container-height);
-    /* flex-direction: row; */
-    /* flex-direction: column; */
-
 }
 
 .column {
     color: white;
-    /* outline: 2px solid yellow; */
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: row; */
 }
 
 .written-content {
-    /* background-color: transparent;
-    backdrop-filter: blur(10px) brightness(125%);
-    border-radius: 8px;
-    border: 1px solid #d4d4d4; */
-    /* outline: 1px solid yellow; */
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -39,6 +27,4 @@
     align-items: center;
     padding: 10px 20px;
     width: 60%;
-
 }
-

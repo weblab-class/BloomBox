@@ -4,7 +4,7 @@ import { get } from "../../../utilities";
 import AlbumGrid from "../AlbumGrid/AlbumGrid";
 import MainButton from "../MainButton/MainButton/";
 
-const Welcome = () => {
+const Login = () => {
     return (
         <div>
             <div className="main-content">
@@ -31,4 +31,4 @@ const Welcome = () => {
     );
 };
 
-export default Welcome;
+export default Login;

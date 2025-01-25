@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { ALBUMS } from "../../../assets/data/albums";
 
 const Profile = () => {
-    const [user, setUser] = useState(null);
+    const [myUser, setMyUser] = useState(null);
     const [songIndex, setSongIndex] = useState(null);
     const navigate = useNavigate();
 
     const loadUser = async () => {
         await get("/api/users/current")
         .then((response) => {
-            setUser(response.user);
+            setMyUser(response.user);
             setSongIndex(response.user.songIndex);
         }).catch(error => console.log("Error getting user data", error));
     };
@@ -35,7 +35,7 @@ const Profile = () => {
 
     const updateUser = async (newFields) => {
         await post("/api/users/current/update", {newFields: newFields})
-            .then(response => setUser(response.user))
+            .then(response => setMyUser(response.user))
             .catch(error => console.log("Error updating user data", error));
     };
 
@@ -46,7 +46,7 @@ const Profile = () => {
                 <img src={(songIndex ? ALBUMS[songIndex] : ALBUMS[0]).image}/>
                 <div className="profile-display-name">
                     <span className="profile-display-name-1">Display Name</span>
-                    <span className="profile-display-name-2">{user?.displayName || "loading"}</span>
+                    <span className="profile-display-name-2">{myUser?.displayName || "loading"}</span>
                 </div>
                 <MainButton text="Save" onClickAction={() => {updateUser({songIndex: songIndex});}}/>
             </div>
@@ -54,7 +54,7 @@ const Profile = () => {
                 {displayImages}
             </div>
             <div className="profile-button-container">
-                <MainButton text="exit to main menu" onClickAction={() => { navigate('/game');}} />
+                <MainButton text="exit to main menu" onClickAction={() => { navigate('/game', { state: { myUser } });}} />
                 <MainButton text="logout" />
             </div>
         </div>
