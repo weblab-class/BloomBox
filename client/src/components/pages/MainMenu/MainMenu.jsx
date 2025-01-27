@@ -1,17 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./MainMenu.css";
 import MainButton from "../MainButton/MainButton";
 import Marquee from "../Marquee/Marquee";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSocketContext } from "../../../context/SocketContext";
+import { useNavigate } from "react-router-dom";
+import { SocketContext } from "../../../context/SocketContext";
 import { get } from "../../../utilities";
 
 const MainMenu = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-    const myUser = location.state?.myUser;
-
-    // const { localStream } = useSocketContext();
+    const socket = useContext(SocketContext);
 
     const generateRoomCode = (length) => {
         const numbers = "1234567890";
@@ -22,13 +19,6 @@ const MainMenu = () => {
         return output;
     };
 
-    // useEffect(() => {
-    //     navigator.mediaDevices.getUserMedia({ audio: false});
-    //     if (localStream) {
-    //         localStream.getAudioTracks().forEach((track) => track.stop());
-    //     }
-    // }, [localStream]);
-
     return (
         <div className="main-menu-container">
             <div className="main-menu-panel">
@@ -36,9 +26,7 @@ const MainMenu = () => {
             <div className="main-menu-body">
                 <MainButton text="create room" onClickAction={() => { 
                     navigate(`room/${generateRoomCode(6)}`, 
-                        { relative: 'path',
-                          state: { myUser},
-                        }); 
+                        { relative: 'path'}); 
                 }}/>
                 <MainButton text="join room" onClickAction={() => { navigate('join', { relative: 'path' }); }}/>
                 <MainButton text="view profile" onClickAction={async () => {

@@ -43,6 +43,8 @@ function getOrCreateUser(user) {
         });
 
         return newUser.save();
+    }).catch((error) => {
+        console.log(error)
     });
 }
 
@@ -108,7 +110,6 @@ async function create(req, res) {
     const userItem = await getOrCreateUser(user);
 
     const userId = userItem._id.toString(); 
-    // console.log("HIIIII");
     req.session.user = userItem;
     res.redirect(
         `http://localhost:5173/game/profile/${userId}`

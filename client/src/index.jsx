@@ -15,10 +15,13 @@ import Stage from "./components/pages/Stage/Stage";
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Outlet,
   Route,
   RouterProvider
 } from 'react-router-dom'
-import { SocketContextProvider } from "./context/SocketContext";
+import { SocketProvider } from "./context/SocketContext";
+import { RoomProvider } from "./context/RoomContext";
+import { UserProvider } from "./context/UserContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,13 +31,15 @@ const router = createBrowserRouter(
           <Route path="game" element={<GameCanvas />}> 
             <Route index element={<MainMenu />}/>
             <Route path="join" element={<Join/>}/>
-            <Route path="room/:roomId" element={
-              <SocketContextProvider>
-                <Room />
-              </SocketContextProvider>
-            }/>
-            <Route path="room/:roomId/catalog" element={<Catalog/>} />
-            <Route path="room/:roomId/stage" element={<Stage/>} />
+            <Route path="room" element={
+              <RoomProvider>
+                <Outlet/>
+              </RoomProvider>
+            }>
+              <Route path=":roomId" element={<Room />}/>
+              <Route path=":roomId/catalog" element={<Catalog/>} />
+              <Route path=":roomId/stage" element={<Stage/>} />
+            </Route>
             <Route path="profile/:userId" element={<Profile/>}/>
           </Route>
       </Route>
@@ -44,5 +49,9 @@ const router = createBrowserRouter(
 
 // renders React Component "Root" into the DOM element with ID "root"
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <RouterProvider router={router} />
+  <SocketProvider>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  </SocketProvider>
 );
